@@ -18,8 +18,8 @@ def main
         xpath_deputes = '//div[@id="deputes-list"]/div/ul/li/a[starts-with(text(), "M. ") or starts-with(text(), "Mme ")]'
         nbr_de_deputes = page.xpath(xpath_deputes).length
         array_deputes = creation_array(page, xpath_deputes, nbr_de_deputes)
+        return array_deputes
     end
-    p array_deputes
 end
 
 def recuperer_infos(lien_page_infos, n, nbr_de_deputes)
@@ -37,6 +37,7 @@ def creation_array(page, xpath_deputes, nbr_de_deputes)
         array_deputes = Array.new
         (0..nbr_de_deputes-1).each { |n|
         # (553..554).each { |n| # Utiliser cette ligne à la place de la précédente pour tester les noms composés, apposés et à particules
+        # (0..4).each { |n|     # Utiliser cette ligne à la place de la précédente pour gagner du temps
             hash_tmp = Hash.new
             # Format du hash
             # "first_name" => "Prénom",
