@@ -12,7 +12,7 @@ def mairie_present?(mairie, mairie_test)
     return a
 end
 
-describe "test if main currency are there" do
+describe "test if 1st are there" do
   it "should return ableiges" do    
     expect(mairie_present?("ableiges", mairie_test)).to be true
   end
@@ -42,7 +42,7 @@ describe "check if return an array" do
   end
 end
 
-describe "check if return all the mairie" do
+describe "check if return all maries" do
   it "should return more than 100" do
     expect(mairie_test.length).to be > 100
   end
