@@ -35,18 +35,18 @@ def recuperer_email(lien_page_email, n, nbr_de_mairies)
 end
 
 def creation_array(page, xpath_mairies, nbr_de_mairies)
-        array_mairies = Array.new
-        (0..nbr_de_mairies-1).each { |n|
-            hash_tmp = Hash.new
-            mairie = page.xpath(xpath_mairies)[n].text.downcase.gsub(/[\s]/, '_')
-            lien = page.xpath(xpath_mairies)[n]['href'].gsub(/^[\.]/, '')
-            lien = "https://annuaire-des-mairies.com#{lien}"
-            hash_tmp[mairie] = recuperer_email(lien, n, nbr_de_mairies)
+    array_mairies = Array.new
+    (0..nbr_de_mairies-1).each { |n|
+        hash_tmp = Hash.new
+        mairie = page.xpath(xpath_mairies)[n].text.downcase.gsub(/[\s]/, '_')
+        lien = page.xpath(xpath_mairies)[n]['href'].gsub(/^[\.]/, '')
+        lien = "https://annuaire-des-mairies.com#{lien}"
+        hash_tmp[mairie] = recuperer_email(lien, n, nbr_de_mairies)
 
-            array_mairies << hash_tmp
-            puts "Le hash #{hash_tmp} a été ajouté dans le tableau array_mairies"
-        }
-        return array_mairies
+        array_mairies << hash_tmp
+        puts "Le hash #{hash_tmp} a été ajouté dans le tableau array_mairies"
+    }
+    return array_mairies
 end
 
 main
