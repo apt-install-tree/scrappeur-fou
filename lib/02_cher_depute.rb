@@ -34,27 +34,27 @@ def recuperer_infos(lien_page_infos, n, nbr_de_deputes)
 end
 
 def creation_array(page, xpath_deputes, nbr_de_deputes)
-        array_deputes = Array.new
-        (0..nbr_de_deputes-1).each { |n|
-        # (553..554).each { |n| # Utiliser cette ligne à la place de la précédente pour tester les noms composés, apposés et à particules
-        # (0..4).each { |n|     # Utiliser cette ligne à la place de la précédente pour gagner du temps lors du test
-            hash_tmp = Hash.new
-            # Format du hash
-            # "first_name" => "Prénom",
-            # "last_name" => "Nom",
-            # "email" => "prenom.nom@assemblee-nationale.fr"
-            nom_complet_depute = page.xpath(xpath_deputes)[n].text.gsub(/^([M][\.][\s])|^([M][m][e])[\s]/, '').split(' ', 2)    # Pour les noms apposés et à particules : l'argument 2 est la limite, donc il va splitter une fois sur le premier \s afin d'obtenir 2 parties
-            lien = page.xpath(xpath_deputes)[n]['href']
-            lien = "http://www2.assemblee-nationale.fr#{lien}"
-            email_depute = recuperer_infos(lien, n, nbr_de_deputes)
-            hash_tmp["first_name"] = nom_complet_depute[0]
-            hash_tmp["last_name"] = nom_complet_depute[1]
-            hash_tmp["email"] = email_depute
+    array_deputes = Array.new
+    (0..nbr_de_deputes-1).each { |n|
+    # (553..554).each { |n| # Utiliser cette ligne à la place de la précédente pour tester les noms composés, apposés et à particules
+    # (0..4).each { |n|     # Utiliser cette ligne à la place de la précédente pour gagner du temps lors du test
+        hash_tmp = Hash.new
+        # Format du hash
+        # "first_name" => "Prénom",
+        # "last_name" => "Nom",
+        # "email" => "prenom.nom@assemblee-nationale.fr"
+        nom_complet_depute = page.xpath(xpath_deputes)[n].text.gsub(/^([M][\.][\s])|^([M][m][e])[\s]/, '').split(' ', 2)    # Pour les noms apposés et à particules : l'argument 2 est la limite, donc il va splitter une fois sur le premier \s afin d'obtenir 2 parties
+        lien = page.xpath(xpath_deputes)[n]['href']
+        lien = "http://www2.assemblee-nationale.fr#{lien}"
+        email_depute = recuperer_infos(lien, n, nbr_de_deputes)
+        hash_tmp["first_name"] = nom_complet_depute[0]
+        hash_tmp["last_name"] = nom_complet_depute[1]
+        hash_tmp["email"] = email_depute
 
-            array_deputes << hash_tmp
-            puts "Le hash #{hash_tmp} a été ajouté dans le tableau array_deputes"
-        }
-        return array_deputes
+        array_deputes << hash_tmp
+        puts "Le hash #{hash_tmp} a été ajouté dans le tableau array_deputes"
+    }
+    return array_deputes
 end
 
 main
