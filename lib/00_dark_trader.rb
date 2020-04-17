@@ -25,13 +25,6 @@ def main
 end
 
 def creation_array(page, xpath_symbol, xpath_price, nbr_of_symbols)
-    # Création d'un Hash avec toutes les valeurs
-        # hash_crypto = {}
-        # (0..nbr_of_symbols-1).each { |n|
-        #     hash_crypto.store(page.xpath(xpath_symbol)[n].text, page.xpath(xpath_price)[n].text)
-        # }
-        # p hash_crypto
-
         # Création d'un Array de Hashs
         array_crypto = Array.new
         (0..nbr_of_symbols-1).each { |n|
