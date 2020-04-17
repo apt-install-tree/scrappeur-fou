@@ -37,7 +37,7 @@ def creation_array(page, xpath_deputes, nbr_de_deputes)
         array_deputes = Array.new
         (0..nbr_de_deputes-1).each { |n|
         # (553..554).each { |n| # Utiliser cette ligne à la place de la précédente pour tester les noms composés, apposés et à particules
-        # (0..4).each { |n|     # Utiliser cette ligne à la place de la précédente pour gagner du temps
+        # (0..4).each { |n|     # Utiliser cette ligne à la place de la précédente pour gagner du temps lors du test
             hash_tmp = Hash.new
             # Format du hash
             # "first_name" => "Prénom",
