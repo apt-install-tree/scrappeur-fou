@@ -25,15 +25,15 @@ def main
 end
 
 def creation_array(page, xpath_symbol, xpath_price, nbr_of_symbols)
-        # Création d'un Array de Hashs
-        array_crypto = Array.new
-        (0..nbr_of_symbols-1).each { |n|
-            hash_tmp = Hash.new
-            hash_tmp[page.xpath(xpath_symbol)[n].text] = page.xpath(xpath_price)[n].text.gsub(/[^\d\.]/, '')    # Ou pour supprimer uniquement $ et , : .delete('$,')
-            array_crypto << hash_tmp
-            puts "Le hash #{hash_tmp} a été ajouté dans le tableau array_crypto"
-        }
-        return array_crypto
+    # Création d'un Array de Hashs
+    array_crypto = Array.new
+    (0..nbr_of_symbols-1).each { |n|
+        hash_tmp = Hash.new
+        hash_tmp[page.xpath(xpath_symbol)[n].text] = page.xpath(xpath_price)[n].text.gsub(/[^\d\.]/, '')    # Ou pour supprimer uniquement $ et , : .delete('$,')
+        array_crypto << hash_tmp
+        puts "Le hash #{hash_tmp} a été ajouté dans le tableau array_crypto"
+    }
+    return array_crypto
 end
 
 main
