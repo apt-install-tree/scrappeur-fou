@@ -1,3 +1,5 @@
+# Projet : Le scrappeur fou
+
 ## 1\. Introduction
 
 Aujourd'hui, tu vas automatiser la récupération massive de données issus de sites internet (= tu vas scraper). Tes compétences en Ruby et en HTML vont te permettre de récupérer ces informations en moins d'une journée. Tu t'amuseras avec le cours des cryptomonnaies, tu iras récupérer les e-mails des mairies de notre beau pays, puis tu chopperas la liste des e-mails des députés de France. Tu ne te penses pas capable de tout ça ? Et bien tu vas voir que si.
